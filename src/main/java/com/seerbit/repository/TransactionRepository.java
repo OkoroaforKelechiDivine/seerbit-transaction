@@ -64,7 +64,6 @@ public class TransactionRepository {
                 break;
             }
         }
-
         Transaction transaction = new Transaction();
         transaction.setId(id);
         transaction.setAmount(t.getAmount());
