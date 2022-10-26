@@ -13,7 +13,6 @@ public class TransactionRepository {
 
     private List<Transaction> database = new ArrayList<>();
 
-
     public void create(){
         database = List.of(
                 new Transaction(1, "123.45", LocalDateTime.now()),
