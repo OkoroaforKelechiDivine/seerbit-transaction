@@ -14,6 +14,9 @@ import java.time.LocalDateTime;
 public class Transaction {
 
     @NonNull
+    private int id;
+
+    @NonNull
     private String amount;
 
     private LocalDateTime timestamp;
