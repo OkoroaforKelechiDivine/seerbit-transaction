@@ -14,7 +14,7 @@ public class TransactionRepository {
     private List<Transaction> database = new ArrayList<>();
 
 
-    public void createTransaction(){
+    public void create(){
         database = List.of(
                 new Transaction(1, "123.45", LocalDateTime.now()),
                 new Transaction(2, "678.90", LocalDateTime.now()),
@@ -36,7 +36,7 @@ public class TransactionRepository {
         return null;
     }
 
-    public List<Transaction> searchTransactionAmount(String amount){
+    public List<Transaction> findTransactionAmount(String amount){
         return database.stream().filter(x -> x.getAmount().startsWith(amount)).collect(Collectors.toList());
     }
 
