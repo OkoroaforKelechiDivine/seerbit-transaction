@@ -21,11 +21,14 @@ public class TransactionService {
         return transactionRepository.getAllTransactions();
     }
 
-    public String getTransactionById(int id){
-        transactionRepository.delete(id);
-        return "The transaction removed " + id;
+    public Transaction getTransactionById(int id){
+        return transactionRepository.findById(id);
     }
 
+    public String deleteTransaction(int id){
+        transactionRepository.delete(id);
+        return "Transaction removed " + id;
+    }
     public Transaction updateTransaction(Transaction transaction){
         return transactionRepository.update(transaction);
     }
