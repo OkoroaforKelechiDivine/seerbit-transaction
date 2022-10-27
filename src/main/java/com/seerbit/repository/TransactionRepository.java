@@ -27,9 +27,9 @@ public class TransactionRepository {
     }
 
     public Transaction findById(int transactionId){
-        for (int index = 0; index < database.size(); index++){
-            if (database.get(index).getId() == (transactionId)){
-                return database.get(index);
+        for (Transaction transaction : database) {
+            if (transaction.getId() == (transactionId)) {
+                return transaction;
             }
         }
         return null;

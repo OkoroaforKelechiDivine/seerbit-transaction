@@ -1,11 +1,6 @@
 package com.seerbit.model;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-
+import lombok.*;
 import java.time.LocalDateTime;
 
 @Data
@@ -13,10 +8,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Transaction {
 
-    @NonNull
-    private int id;
+    private Integer id;
 
-    @NonNull
     private String amount;
 
     private LocalDateTime timestamp;
