@@ -18,3 +18,16 @@ We would like to have a REST API for our statistics. The main use case for the A
 - POST /transactions – called every time a transaction is made.
 - GET /statistics – returns the statistic based of the transactions of the last 30 seconds.
 - DELETE /transactions – deletes all transactions.
+
+
+You can complete the challenge offline using an IDE of your choice. To download the application skeleton, please enable Use Git in the editor and follow the instructions on screen. Please make sure you test your solution where possible before submitting.
+
+1 POST /transactions
+This endpoint is called to create a new transaction. It MUST execute in constant time and memory (O(1)).
+
+Body:
+
+{
+"amount": "12.3343",
+"timestamp": "2022-06-17T09:59:51.312Z"
+}
