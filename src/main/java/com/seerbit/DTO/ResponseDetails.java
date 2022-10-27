@@ -3,16 +3,15 @@ package com.seerbit.DTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponseDetails {
 
-    private LocalDate createdDate;
+    private LocalDateTime createdDate;
 
     private String message;
 

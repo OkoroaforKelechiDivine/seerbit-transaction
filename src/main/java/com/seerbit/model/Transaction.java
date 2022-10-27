@@ -8,8 +8,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Transaction {
 
-    private Integer id;
-
     private String amount;
 
     private LocalDateTime timestamp;

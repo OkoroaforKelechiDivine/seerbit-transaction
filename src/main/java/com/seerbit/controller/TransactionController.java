@@ -7,11 +7,9 @@ import com.seerbit.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
@@ -27,23 +25,14 @@ public class TransactionController {
         if (transaction.getAmount().isEmpty()){
             return ResponseEntity.status(400).body(statusDetails);
         }
-        transactionService.saveTransaction(transaction );
-        ResponseDetails responseDetails = new ResponseDetails(LocalDate.now(), "Transaction created successfully.", HttpStatus.CREATED.toString());
+        transactionService.saveTransaction(transaction);
+        ResponseDetails responseDetails = new ResponseDetails(LocalDateTime.now(), "Transaction created successfully.", HttpStatus.CREATED.toString());
         return ResponseEntity.status(201).body(responseDetails);
     }
 
     @GetMapping("/statistics/{id}")
-    public Transaction findTransactionById(@PathVariable int id){
-        return transactionService.getTransactionById(id);
+    public Transaction findTransactionById(@PathVariable String id){
+        return transactionService.findByAmount(id);
     }
 
-    @PutMapping
-    public Transaction updateTransaction(@RequestBody Transaction transaction){
-        return transactionService.updateTransaction(transaction);
-    }
-
-    @DeleteMapping({"id"})
-    public String deleteTransaction(@PathVariable int id){
-        return transactionService.deleteTransaction(id);
-    }
 }

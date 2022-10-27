@@ -14,27 +14,15 @@ import java.util.List;
 public class TransactionService {
 
     @Autowired
-    private TransactionRepository transactionRepository;
+    private TransactionRepository repository;
 
     public void saveTransaction(Transaction transaction){
         BigDecimal bigDecimal = new BigDecimal(transaction.getAmount()); // will convert the string amount to big decimal
         log.info("Converted String amount to BigDecimal " + bigDecimal);
-        transactionRepository.save(transaction);
+        repository.save(transaction);
     }
 
-    public List<Transaction> getAllTransactions(){
-        return transactionRepository.getAllTransactions();
-    }
-
-    public Transaction getTransactionById(int id){
-        return transactionRepository.findById(id);
-    }
-
-    public String deleteTransaction(int id){
-        transactionRepository.delete(id);
-        return "Transaction removed " + id;
-    }
-    public Transaction updateTransaction(Transaction transaction){
-        return transactionRepository.update(transaction);
+    public Transaction findByAmount(String id) {
+        return repository.findByAmount(id);
     }
 }

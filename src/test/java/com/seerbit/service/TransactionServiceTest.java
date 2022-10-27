@@ -16,8 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @Slf4j
 public class TransactionServiceTest {
 
-    @Autowired
-    private TransactionService transactionService;
 
     @Autowired
     private TransactionRepository transactionRepository;
@@ -27,14 +25,12 @@ public class TransactionServiceTest {
     @BeforeEach
     public void initSetup(){
         transaction = new Transaction();
-        transactionService = new TransactionService();
     }
 
     @Test
     @DisplayName("Create Transaction")
     public void test_createTransaction(){
         transaction.setAmount("55.89");
-        transaction.setId(2);
 
         assert transaction != null;
         assert transaction.getAmount() != null;
