@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Repository
@@ -48,16 +49,15 @@ public class TransactionRepository {
         return transaction;
     }
 
-    public String delete(int id){
+    public void delete(int id){
         database.removeIf(x -> x.getId() == (id));
-        return null;
     }
 
     public Transaction update(Transaction t){
         int i = 0;
         int id = 0;
-        for (int index = 0; index < database.size(); index++){
-            if (database.get(index).getId() == (t.getId())){
+        for (Transaction value : database) {
+            if (Objects.equals(value.getId(), t.getId())) {
                 id = t.getId();
                 i = 1;
                 break;

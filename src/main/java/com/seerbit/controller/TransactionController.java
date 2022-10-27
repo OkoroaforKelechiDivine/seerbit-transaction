@@ -15,13 +15,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/")
 public class TransactionController {
 
     @Autowired
     TransactionService transactionService;
 
-    @PostMapping("/transactions")
+    @PostMapping("transactions")
     public ResponseEntity<?> createTransaction(@Valid @RequestBody Transaction transaction) {
         StatusDetails statusDetails = new StatusDetails("Json format is invalid.", LocalDateTime.now(), HttpStatus.BAD_REQUEST.toString());
         if (transaction.getAmount().isEmpty()){
