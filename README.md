@@ -22,7 +22,9 @@ We would like to have a REST API for our statistics. The main use case for the A
 
 You can complete the challenge offline using an IDE of your choice. To download the application skeleton, please enable Use Git in the editor and follow the instructions on screen. Please make sure you test your solution where possible before submitting.
 
-1 POST /transactions
+
+
+1. POST /transactions
 This endpoint is called to create a new transaction. It MUST execute in constant time and memory (O(1)).
 
 Body:
@@ -31,3 +33,14 @@ Body:
 "amount": "12.3343",
 "timestamp": "2022-06-17T09:59:51.312Z"
 }
+
+Where:
+
+- amount – transaction amount; a string of arbitrary length that is parsable as a BigDecimal
+- timestamp – transaction time in the ISO 8601 format YYYY-MM-DDThh:mm:ss.sssZ in the UTC timezone (this is not the current timestamp)
+- Returns: Empty body with one of the following:
+
+- 201 – in case of success
+- 204 – if the transaction is older than 30 seconds
+- 400 – if the JSON is invalid
+- 422 – if any of the fields are not parsable or the transaction date is in the future
