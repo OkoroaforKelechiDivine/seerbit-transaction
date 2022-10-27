@@ -1,5 +1,6 @@
 package com.seerbit.service;
 
+import com.seerbit.Exception.DateOutOfRangeException;
 import com.seerbit.model.Transaction;
 import com.seerbit.repository.TransactionRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -7,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,6 +21,7 @@ public class TransactionService {
     private TransactionRepository repository;
 
     public void saveTransaction(Transaction transaction){
+
         BigDecimal bigDecimal = new BigDecimal(transaction.getAmount()); // will convert the string amount to big decimal
         log.info("Converted String amount to BigDecimal " + bigDecimal);
         repository.save(transaction);

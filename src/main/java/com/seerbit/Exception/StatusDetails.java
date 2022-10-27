@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 
 @Data
@@ -13,6 +14,7 @@ public class StatusDetails {
 
     private String message;
 
+    @NotEmpty
     private LocalDateTime timestamp;
 
     private String status;

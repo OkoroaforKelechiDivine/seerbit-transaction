@@ -1,6 +1,9 @@
 package com.seerbit.model;
 
 import lombok.*;
+
+import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Data
@@ -10,6 +13,7 @@ public class Transaction {
 
     private String amount;
 
-    private LocalDateTime timestamp;
+    @NotEmpty
+    private LocalDate timestamp;
 
 }

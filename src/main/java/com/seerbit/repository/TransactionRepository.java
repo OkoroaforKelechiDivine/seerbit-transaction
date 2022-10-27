@@ -3,6 +3,7 @@ package com.seerbit.repository;
 import com.seerbit.model.Transaction;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class TransactionRepository {
     public void save(Transaction t){
         Transaction transaction = new Transaction();
         transaction.setAmount(t.getAmount());
-        transaction.setTimestamp(LocalDateTime.now());
+        transaction.setTimestamp(LocalDate.now());
         database.add(transaction); // add transaction to database after creation
     }
 }
