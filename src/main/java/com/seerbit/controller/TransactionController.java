@@ -1,8 +1,8 @@
 package com.seerbit.controller;
 
 import com.seerbit.DTO.ResponseDetails;
-import com.seerbit.Exception.DateOutOfRangeException;
 import com.seerbit.Exception.StatusDetails;
+import com.seerbit.model.Statical;
 import com.seerbit.model.Transaction;
 import com.seerbit.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
@@ -28,15 +27,14 @@ public class TransactionController {
         if (transaction.getAmount().isEmpty()) {
             return ResponseEntity.status(422).body(statusDetails);
         }
-        transactionService.saveTransaction(transaction);
+        transactionService.createTransaction(transaction);
         ResponseDetails responseDetails = new ResponseDetails(LocalDateTime.now(), "Transaction created successfully.", HttpStatus.CREATED.toString());
         return ResponseEntity.status(201).body(responseDetails);
     }
 
 //     returns the statistic based on the transactions of the last 30 seconds
     @GetMapping("/statistics")
-    public Transaction findTransactionById(String id){
-        return transactionService.findByAmount(id);
+    public Statical getStatical(@Valid @RequestBody Statical statical){
+        return transactionService.getStatistics(statical);
     }
-
 }
