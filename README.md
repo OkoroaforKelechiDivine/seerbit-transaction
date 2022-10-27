@@ -24,6 +24,8 @@ You can complete the challenge offline using an IDE of your choice. To download 
 
 
 
+
+
 1. POST /transactions
 This endpoint is called to create a new transaction. It MUST execute in constant time and memory (O(1)).
 
@@ -46,6 +48,9 @@ Where:
 - 422 – if any of the fields are not parsable or the transaction date is in the future
 
 
+
+
+
 2. GET /statistics
 This endpoint returns the statistics based on the transactions that happened in the last 30 seconds. It MUST execute in constant time and memory (O(1)).
 
@@ -58,3 +63,19 @@ Returns:
 "min": "50.23",
 "count": 10
 }
+
+
+Where:
+
+- sum – a BigDecimal specifying the total sum of transaction value in the last 30 seconds
+- avg – a BigDecimal specifying the average amount of transaction value in the last 30 seconds
+- max – a BigDecimal specifying single highest transaction value in the last 30 seconds
+- min – a BigDecimal specifying single lowest transaction value in the last 30 seconds
+- count – a long specifying the total number of transactions that happened in the last 30 seconds
+
+
+All BigDecimal values always contain exactly two decimal places and use HALF_ROUND_UP rounding. eg: 10.345 is returned as 10.35, 10.8 is returned as 10.80
+
+
+3. DELETE /transactions
+This endpoint causes all existing transactions to be deleted The endpoint should accept an empty request body and return a 204 status code.
