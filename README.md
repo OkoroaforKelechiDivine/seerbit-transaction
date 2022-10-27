@@ -44,3 +44,17 @@ Where:
 - 204 – if the transaction is older than 30 seconds
 - 400 – if the JSON is invalid
 - 422 – if any of the fields are not parsable or the transaction date is in the future
+
+
+2. GET /statistics
+This endpoint returns the statistics based on the transactions that happened in the last 30 seconds. It MUST execute in constant time and memory (O(1)).
+
+Returns:
+
+{
+"sum": "1000.00",
+"avg": "100.53",
+"max": "200000.49",
+"min": "50.23",
+"count": 10
+}
