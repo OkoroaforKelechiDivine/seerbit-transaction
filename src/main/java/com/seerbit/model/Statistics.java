@@ -1,7 +1,6 @@
 package com.seerbit.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.seerbit.config.StatisticsStore;
 import lombok.Data;
 
 import java.math.BigDecimal;
