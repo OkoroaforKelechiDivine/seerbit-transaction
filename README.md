@@ -10,3 +10,11 @@ These are the additional requirements for the solution:
 - mvn clean install and mvn clean integration-test must complete successfully.
 - Please ensure that no changes are made to the src/it folder.
 - In addition to passing the tests, the solution must be at a quality level that you would be comfortable enough to put in production.
+
+
+Problem challenge
+We would like to have a REST API for our statistics. The main use case for the API is to calculate realtime statistics for the last 30 seconds of transactions. The API needs the following endpoints:
+
+- POST /transactions – called every time a transaction is made.
+- GET /statistics – returns the statistic based of the transactions of the last 30 seconds.
+- DELETE /transactions – deletes all transactions.
